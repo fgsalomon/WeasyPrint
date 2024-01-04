@@ -242,6 +242,8 @@ def generate_pdf(document, target, zoom, **options):
             key = ''.join(char for char in key if char.isalnum())
             key = key.encode('ascii', errors='ignore').decode()
             if key:
+                if key == "producer":
+                    key = "Producer"
                 pdf.info[key] = pydyf.String(value)
 
     # Embedded files
